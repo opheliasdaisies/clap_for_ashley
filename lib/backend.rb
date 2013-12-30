@@ -4,25 +4,41 @@ require 'thread'
 class Backend
   KEEPALIVE_TIME = 15
 
+  MUTEX = Mutex.new
+
   def initialize(app)
+
+    TweetStream.configure do |config|
+      config.consumer_key       = '0oajkeNqoHg4bYYH551A'
+      config.consumer_secret    = 'uRgXirGUw5QhjtqF0tRgfLaw0mwUGseDGGe6RmvS0o'
+      config.oauth_token        = '2268843889-ZHaziojytEyLUMkmqGe4I4fu7VD5pB2WiGnO2QH'
+      config.oauth_token_secret = 'HdNktihKIPgYrnneNTKRvTobBxwExygM4ytPEufyuuaRf'
+      config.auth_method        = :oauth
+    end
+
     @app = app
     @clients = []
+    
     Thread.new do
       TweetStream::Client.new.on_inited do
       end.on_enhance_your_calm do
-        invoke_callback(callbacks['enhance_your_calm'])
-        puts "shit twitter blocked me"
+        puts "shit i hit the fucking rate limit"
       end.on_status_withheld do
         puts "shit status withheld"
       end.on_error do |message|
         puts message
-      end.follow(2265270307) do |status|
+      end.follow(304067888) do |status|
         puts "I GOT A STATUS"
         status = "#{status.text}"
-        @clients.each {|client| client.send(JSON.dump status)}
+        MUTEX.synchronize {
+          @clients.each {|client| client.send(JSON.dump status)}
+        }
       end
     end
   end
+
+        # 304067888 ashley
+        # 2265270307 test
 
   def call(env)
     if Faye::WebSocket.websocket?(env)
@@ -30,7 +46,7 @@ class Backend
 
       ws.on :open do |event|
         p [:open, ws.object_id]
-        @clients << ws
+        MUTEX.synchronize {@clients << ws}
         # test loop for jquery don't delete
         # loop do
         #   @clients.each {|client| client.send(JSON.dump "hello this is a message")}
@@ -40,7 +56,7 @@ class Backend
 
       ws.on :close do |event|
         p [:close, ws.object_id, event.code, event.reason]
-        @clients.delete(ws)
+        MUTEX.synchronize {@clients.delete(ws)}
         ws = nil
       end
 
