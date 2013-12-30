@@ -7,24 +7,19 @@ class Backend
   def initialize(app)
     @app = app
     @clients = []
-    puts "THREADING"
     Thread.new do
-      puts "INSIDE THREAD"
       TweetStream::Client.new.on_inited do
-        puts "started"
       end.on_enhance_your_calm do
         invoke_callback(callbacks['enhance_your_calm'])
-        puts "shit blocked"
+        puts "shit twitter blocked me"
       end.on_status_withheld do
         puts "shit status withheld"
       end.on_error do |message|
         puts message
-      end.follow(304067888) do |status|
+      end.follow(2265270307) do |status|
         status = "#{status.text}"
         @clients.each {|client| client.send(JSON.dump status)}
-        puts "I got a status!!!"
       end
-      puts "i should not get hereeeee"
     end
   end
 
@@ -33,7 +28,6 @@ class Backend
     if Faye::WebSocket.websocket?(env)
       ws = Faye::WebSocket.new(env, nil, {ping: KEEPALIVE_TIME})
 
-      #maybe open connection here
       ws.on :open do |event|
         p [:open, ws.object_id]
         @clients << ws
@@ -52,7 +46,6 @@ class Backend
 
       ws.rack_response
     else
-      # [200, {'Content-Type' => 'text/plain'}, ["Clap for Ashley"]]
       @app.call(env)
     end
   end
