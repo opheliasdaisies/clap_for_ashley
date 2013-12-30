@@ -17,6 +17,7 @@ class Backend
       end.on_error do |message|
         puts message
       end.follow(2265270307) do |status|
+        puts "I GOT A STATUS"
         status = "#{status.text}"
         @clients.each {|client| client.send(JSON.dump status)}
       end
@@ -24,18 +25,17 @@ class Backend
   end
 
   def call(env)
-    #inspects env to check whether the incoming request is a WebSockets request
     if Faye::WebSocket.websocket?(env)
       ws = Faye::WebSocket.new(env, nil, {ping: KEEPALIVE_TIME})
 
       ws.on :open do |event|
         p [:open, ws.object_id]
         @clients << ws
+        # test loop for jquery don't delete
         # loop do
         #   @clients.each {|client| client.send(JSON.dump "hello this is a message")}
         #   sleep(30)
         # end
-        # open connection to twitter for every new client
       end
 
       ws.on :close do |event|
