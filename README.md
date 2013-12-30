@@ -19,3 +19,11 @@ Please be descriptive in your commit messages! This is extra important with a co
 Also, we haven't worked on a collaborator project in Git since week 1. If you have ANY questions about using Git, please ask us! I'm almost always on gtalk at sgorecki@gmail.com. Whenever you try to push a change, remember to "git commit", "git pull", and then "git push", fixing any merge errors if they come up. Commit and push early and often to keep all our files consistent! Again, if you run into problems or concerns ask us (and not an instrucutor) before pushing.
 
 Hurrah BK-000! Let's do this!
+
+PROGRESS
+=======================
+Nikki implemented tweetstream and websockets to ensure that as soon as a new tweet comes in from Ashley, the tweet comes up on the screen and we hear applause + a picture of people clapping.
+
+We can change the applause and image later.
+
+Please do not break the websocket code! If you wanna change how it works, just let me know and we will work together.
