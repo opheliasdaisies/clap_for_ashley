@@ -1,3 +1,9 @@
 require './app.rb'
+require './lib/backend'
 
-run Ashley::Applause.new
+use Backend
+
+use Faye::RackAdapter, :mount      => '/faye',
+                       :timeout    => 25
+
+run Ashley::Applause

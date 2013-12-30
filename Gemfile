@@ -1,6 +1,11 @@
 source "https://rubygems.org"
 
 gem "sinatra"
+gem "tweetstream"
+gem "puma"
+gem "faye"
+gem "faye-websocket"
+gem "rack"
 
 group :development do
   gem "tux"
