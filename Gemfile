@@ -6,6 +6,7 @@ gem "puma"
 gem "faye"
 gem "faye-websocket"
 gem "rack"
+gem "json"
 
 group :development do
   gem "tux"

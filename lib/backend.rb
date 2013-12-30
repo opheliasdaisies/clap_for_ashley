@@ -8,14 +8,24 @@ class Backend
     @app = app
     @clients = []
     puts "THREADING"
-    Thread.new do
-      puts "INSIDE THREAD"
-      TweetStream::Client.new.follow(2265270307) do |status|
-        status = "#{status.text}"
-        @clients.each {|client| client.send(status)}
-        puts "I got a status!!!"
-      end
-    end
+    # Thread.new do
+    #   puts "INSIDE THREAD"
+    #   TweetStream::Client.new.on_inited do
+    #     puts "started"
+    #   end.on_enhance_your_calm do
+    #     invoke_callback(callbacks['enhance_your_calm'])
+    #     puts "shit blocked"
+    #   end.on_status_withheld do
+    #     puts "shit status withheld"
+    #   end.on_error do |message|
+    #     puts message
+    #   end.follow(2265270307) do |status|
+    #     status = "#{status.text}"
+    #     @clients.each {|client| client.send(status)}
+    #     puts "I got a status!!!"
+    #   end
+    #   puts "i should not get hereeeee"
+    # end
   end
 
   def call(env)
@@ -27,6 +37,10 @@ class Backend
       ws.on :open do |event|
         p [:open, ws.object_id]
         @clients << ws
+        loop do
+          @clients.each {|client| client.send(JSON.dump "hello this is a message")}
+            sleep(30)
+          end
         # open connection to twitter for every new client
       end
 
