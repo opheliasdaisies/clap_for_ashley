@@ -26,4 +26,4 @@ Nikki implemented tweetstream and websockets to ensure that as soon as a new twe
 
 We can change the applause and image later.
 
-Please do not break the websocket code! If you wanna change how it works, just let me know and we will work together.
+If you wanna change how it works, just let me know and we will work together.
