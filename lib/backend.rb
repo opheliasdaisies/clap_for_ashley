@@ -29,7 +29,7 @@ class Backend
         puts message
       end.follow(304067888) do |status|
         puts "I GOT A STATUS"
-        status = "#{status.text}"
+        status = "#{status.text} - @#{status.user.screen_name}"
         MUTEX.synchronize {
           @clients.each {|client| client.send(JSON.dump status)}
         }
