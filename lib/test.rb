@@ -18,7 +18,7 @@ def get_statuses
     puts "shit status withheld"
   end.on_error do |message|
     puts "#{message}"
-  end.follow(2265270307) do |status|
+  end.follow(304067888) do |status|
     puts "#{status.text}"
   end
 end
