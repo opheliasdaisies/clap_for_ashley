@@ -20,6 +20,25 @@ Also, we haven't worked on a collaborator project in Git since week 1. If you ha
 
 Hurrah BK-000! Let's do this!
 
+MAIN PAGE (Clap when Ashley Tweets)
+----------------
+(Please be specific and include a status: Not started, In process, or Completed). <br/>
+
+Nikki - detect when ashley tweets and clap (Status: Complete) <br/>
+
+*** TO DOs ***
+- style the layout
+- style the tweet and tweeter section
+- detect when #clapforashley is trending (i.e. when someone not in our class tweets it)
+- find and include gifs for random selection
+- add logic to randomly select gifs to show 
+
+
+SIDE PROJECTS
+-----------------
+If you are working on a new route, describe it here.
+
+
 PROGRESS
 =======================
 Nikki implemented tweetstream and websockets to ensure that as soon as a new tweet comes in from Ashley, the tweet comes up on the screen and we hear applause + a picture of people clapping.
