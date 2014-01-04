@@ -25,9 +25,10 @@ MAIN PAGE (Clap when Ashley Tweets)
 (Please be specific and include a status: Not started, In process, or Completed). <br/>
 
 Nikki - detect when ashley tweets and clap (Status: Complete) <br/>
+Nisha - style the layout (In process)
 
 *** TO DOs ***
-- style the layout
+- style the layout (nisha)
 - style the tweet and tweeter section
 - detect when #clapforashley is trending (i.e. when someone not in our class tweets it)
 - find and include gifs for random selection
