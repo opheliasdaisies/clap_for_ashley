@@ -20,19 +20,23 @@ class Backend
     @clients = []
 
     Thread.new do
-      TweetStream::Client.new.on_inited do
-      end.on_enhance_your_calm do
+      client1 = TweetStream::Client.new
+      client2 = TweetStream::Client.new
+
+      client1.track('clapforashley', 'ag_dubs', '@ag_dubs') do |status|
+        get_status(status)
+      end
+
+      client2.follow(304067888) do |status|
+        get_status(status)
+      end
+
+      client1.on_enhance_your_calm do
         puts "shit i hit the fucking rate limit"
-      end.on_status_withheld do
-        puts "shit status withheld"
-      end.on_error do |message|
-        puts message
-      end.follow(304067888) do |status|
-        puts "I GOT A STATUS"
-        status = "#{status.text} - @#{status.user.screen_name}"
-        MUTEX.synchronize {
-          @clients.each {|client| client.send(JSON.dump status)}
-        }
+      end
+
+      client2.on_enhance_your_calm do
+        puts "shit i hit the fucking rate limit"
       end
     end
   end
@@ -46,7 +50,7 @@ class Backend
         MUTEX.synchronize {@clients << ws}
         # test loop for jquery don't delete
         # loop do
-        #   @clients.each {|client| client.send(JSON.dump "hello this is a message")}
+        #   @clients.each {|client| client.send(JSON.dump "hello this is a message - @nikki")}
         #   sleep(30)
         # end
       end
@@ -61,6 +65,13 @@ class Backend
     else
       @app.call(env)
     end
+  end
+
+  def get_status(status)
+    message = "#{status.text} - @#{status.user.screen_name}"
+    MUTEX.synchronize {
+      @clients.each {|client| client.send(JSON.dump message)}
+    }
   end
 end
 

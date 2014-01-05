@@ -16,13 +16,17 @@ ws.onmessage = function(message) {
     var user = matcher.exec(data)[2]
     console.log("Just received: " + data);
     $("#message").replaceWith(message_div + "<h2>" + tweet + "</h2>" + "<h3>- " + user + "</h3>" + div_close);
+    // $("#background").fadeIn(500);
+    // $("body").css({"background-image": "url(/images/clapping.gif)", "background-size": "cover"});
     $("#clap").replaceWith(clap_div + "<img src='/images/clap.gif' />" + div_close);
     audio.play();
     setTimeout(hide, 10000);
   };
 
   function hide() {
-    $("#message").replaceWith(message_div + "<h2>" + "Sit patiently, and wait for Ashley to tweet" + "</h2>" + div_close);
+    $("#message").replaceWith(message_div + "<h2>" + "Wait for it..." + "</h2>" + div_close);
+    // $("#background").fadeOut(500);
+    // $("body").css("background-image", "none"); 
     $("#clap").replaceWith(clap_div + div_close);
   };
 

@@ -9,17 +9,22 @@ TweetStream.configure do |config|
 end
 
 def get_statuses
-  puts "here we are"
-  TweetStream::Client.new.on_inited do
-    puts "started"
-  end.on_enhance_your_calm do
+  client = TweetStream::Client.new
+
+  client.track('clapforashley') do |status|
+    puts "#{status.text}"
+  end
+
+  client.follow(2265270307) do |status|
+    puts "#{status.text}"
+  end
+
+  client.on_enhance_your_calm do
     puts "shit blocked"
   end.on_status_withheld do
     puts "shit status withheld"
   end.on_error do |message|
     puts "#{message}"
-  end.follow(304067888) do |status|
-    puts "#{status.text}"
   end
 end
 
