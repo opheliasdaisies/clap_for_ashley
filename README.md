@@ -27,6 +27,7 @@ MAIN PAGE (Clap when Ashley Tweets)
 Nikki - detect when ashley tweets and clap (Status: Complete) <br/>
 Nisha - style the layout (In process - others can join me on this)<br>
 Kate - tallying daily tweets (Status: In Progress) <br>
+Sarah - collect random gifs of clapping, and a clapping sound (Status: In Progress, not on site) https://docs.google.com/document/d/1zRdqpJ9al5qukRJ96ZqMnHvxzi2QxCSiK7IKTmd-QuY/edit <br>
 
 
 *** TO DOs ***
