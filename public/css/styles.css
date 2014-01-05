@@ -1,28 +1,59 @@
 body {
-  font-family: Helvetica;
+  font-family: 'Amatic SC', cursive;
+  background-color: #99E6F0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* this doesn't work?? */
+  -moz-box-sizing: border-box; /* this doesn't work?? */
+}
+
+h2 {
+  font-size: 24pt;
+  padding: 20px;
 }
 
 #message, #clap {
-  width: 700px;
-  margin: 50px auto 0 auto;
   text-align: center;
 }
 
-#title {
-  width: 700px;
-  margin: 150px auto 0 auto;
-  text-align: center;
+.main-container {
+  width: 1240px;
+  margin: 0 auto;
 }
 
-.wrapper {
+.row {
   width: 100%;
-  height: 100%;
 }
 
-#background {
-  position: absolute;
-  z-index: -1;
-  display: none;
+.column {
+  width: 400px;
   height: 100%;
+  float: left;
+  display: inline-block;
+}
+
+.item {
+  background-color: rgba(255,255,255,0.8);
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  padding: 10px 10px 7px 10px; /*for some reason there are a few extra pixels showing on the bottom that's why I made it less*/
+}
+
+.item-small {
+  width: 160px;
+}
+
+.item-large {
+  width: 360px;
+}
+
+.item img {
   width: 100%;
+  overflow: hidden;
+}
+
+.clap-container {
+  height: 300px;
+  background-color: white;
 }
