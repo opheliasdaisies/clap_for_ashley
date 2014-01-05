@@ -48,6 +48,11 @@ h2 {
   width: 360px;
 }
 
+.item img {
+  width: 100%;
+  overflow: hidden;
+}
+
 .clap-container {
   height: 300px;
   background-color: white;
