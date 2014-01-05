@@ -8,7 +8,7 @@ ws.onmessage = function(message) {
   var message_div = "<div id='message'>"
   var clap_div = "<div id='clap'>"
   var div_close = "</div>"
-  var attribute = "<h3> - wisdom from ashley williams and friends</h3>"
+  var attribute = "<h2> - wisdom from ashley williams and friends</h2>"
 
   function clap(message) {
     var data = JSON.parse(message.data);
