@@ -25,7 +25,7 @@ MAIN PAGE (Clap when Ashley Tweets)
 (Please be specific and include a status: Not started, In process, or Completed). <br/>
 
 Nikki - detect when ashley tweets and clap (Status: Complete) <br/>
-Nisha - style the layout (In process)
+Nisha - style the layout (In process - others can join me on this)<br>
 Kate - tallying daily tweets (Status: In Progress) <br>
 
 
