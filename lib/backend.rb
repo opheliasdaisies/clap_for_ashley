@@ -20,22 +20,17 @@ class Backend
     @clients = []
 
     Thread.new do
-      client1 = TweetStream::Client.new
-      client2 = TweetStream::Client.new
+      client = TweetStream::Client.new
 
-      client1.track('clapforashley', 'ag_dubs', '@ag_dubs') do |status|
+      # client1.track('clapforashley', 'ag_dubs', '@ag_dubs') do |status|
+      #   get_status(status)
+      # end
+
+      client.follow(304067888) do |status|
         get_status(status)
       end
 
-      client2.follow(304067888) do |status|
-        get_status(status)
-      end
-
-      client1.on_enhance_your_calm do
-        puts "shit i hit the fucking rate limit"
-      end
-
-      client2.on_enhance_your_calm do
+      client.on_enhance_your_calm do
         puts "shit i hit the fucking rate limit"
       end
     end

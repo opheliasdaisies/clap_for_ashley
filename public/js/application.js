@@ -8,7 +8,6 @@ ws.onmessage = function(message) {
   var message_div = "<div id='message'>"
   var clap_div = "<div id='clap'>"
   var div_close = "</div>"
-  var attribute = "<h2> - wisdom from ashley williams and friends</h2>"
 
   function clap(message) {
     var data = JSON.parse(message.data);
@@ -19,7 +18,9 @@ ws.onmessage = function(message) {
     $("#message").replaceWith(message_div + "<h2>" + tweet + "</h2>" + "<h3>- " + user + "</h3>" + div_close);
     // $("#background").fadeIn(500);
     // $("body").css({"background-image": "url(/images/clapping.gif)", "background-size": "cover"});
-    $("#clap").replaceWith(clap_div + "<img src='/images/clap.gif' />" + div_close);
+    if (user == "ag_dubs") {
+      $("#clap").replaceWith(clap_div + "<img src='/images/clap.gif' />" + div_close);
+    }
     audio.play();
     setTimeout(hide, 10000);
   };
