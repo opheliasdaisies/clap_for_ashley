@@ -8,9 +8,16 @@ body {
 }
 
 h2 {
-  font-size: 24pt;
+  font-size: 1.8em;
   padding: 20px;
 }
+
+h3 {
+  font-size: 1.2em;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: 600; 
+} 
 
 #message, #clap {
   text-align: center;
@@ -56,4 +63,8 @@ h2 {
 .clap-container {
   height: 300px;
   background-color: white;
+}
+
+.twitter-button {
+  margin: 0px 10px;
 }
