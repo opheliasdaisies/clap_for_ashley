@@ -68,3 +68,13 @@ h3 {
 .twitter-button {
   margin: 0px 10px;
 }
+
+.photo {
+  /*IF WE CAN GET JQUERY TO APPLY / UNAPPLY THIS CLASS TO THE DIVS IT WILL 
+  CREATE THE EFFECT OF THESE ITEMS DISAPPEARING/APPEARING. 
+  IF NOT, THE DIVS WILL ALL SHIFT AND THE MAIN DIV TO SHOW THE TWEET WILL SHIFT
+  LEFT ADN UPWARDS --NB*/
+
+  /*background-color: rgba(255,255,255,0.8);*/
+  /*display: none;*/
+}
