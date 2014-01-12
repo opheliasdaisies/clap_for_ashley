@@ -25,10 +25,14 @@ MAIN PAGE (Clap when Ashley Tweets)
 (Please be specific and include a status: Not started, In process, or Completed). <br/>
 
 Nikki - detect when ashley tweets and clap (Status: Complete) <br/>
+Nikki (Sunday 12/1/14):
+- Change so that only claps when Ashley tweets or when others tweet #clapforashley
+- Add jquery to fade the gifs in and out when event is triggered
+
 Nisha - style the layout (In process - others can join me on this)<br>
 Kate - tallying daily tweets (Status: In Progress) <br>
 Sarah - collect random gifs of clapping, and a clapping sound (Status: In Progress, not on site) https://docs.google.com/document/d/1zRdqpJ9al5qukRJ96ZqMnHvxzi2QxCSiK7IKTmd-QuY/edit <br>
-Sara - use jQuery to trigger image/gif change when tweets are received (Status: Not Started) <br>
+Sara - use jQuery to trigger image/gif change when tweets are received (Status: completed see above) <br>
 
 
 *** TO DOs ***
