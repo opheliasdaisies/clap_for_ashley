@@ -11,11 +11,12 @@ end
 def get_statuses
   client = TweetStream::Client.new
 
-  client.track('clapforashley') do |status|
-    puts "#{status.text}"
-  end
-
-  client.follow(2265270307) do |status|
+  client.filter(
+    {
+      :follow => ['2265270307'],
+      :track => ['clapforashley']
+    }
+  ) do |status|
     puts "#{status.text}"
   end
 

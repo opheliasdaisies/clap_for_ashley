@@ -15,21 +15,19 @@ ws.onmessage = function(message) {
     var tweet = matcher.exec(data)[1]
     var user = matcher.exec(data)[2]
     console.log("Just received: " + data);
-    $("#message").replaceWith(message_div + "<h2>" + tweet + "</h2>" + "<h3>- " + user + "</h3>" + div_close);
-    // $("#background").fadeIn(500);
-    // $("body").css({"background-image": "url(/images/clapping.gif)", "background-size": "cover"});
-    if (user == "ag_dubs") {
-      $("#clap").replaceWith(clap_div + "<img src='/images/clap.gif' />" + div_close);
+    if (user == '@ag_dubs' || tweet.indexOf("clapforashley") != -1) {
+      $("#message").replaceWith(message_div + "<h2>" + tweet + "</h2>" + "<h3>- " + user + "</h3>" + div_close);
+      $(".photo").fadeTo(500, 1);
     }
+      // $("#clap").replaceWith(clap_div + "<img src='/images/clap.gif' />" + div_close);
     audio.play();
     setTimeout(hide, 10000);
   };
 
   function hide() {
     $("#message").replaceWith(message_div + "<h2>" + "Wait for it..." + "</h2>" + div_close);
-    // $("#background").fadeOut(500);
-    // $("body").css("background-image", "none"); 
-    $("#clap").replaceWith(clap_div + div_close);
+    $(".photo").fadeTo(1000, 0);
+    // $("#clap").replaceWith(clap_div + div_close);
   };
 
   clap(message);
