@@ -18,10 +18,10 @@ ws.onmessage = function(message) {
     if (user == '@ag_dubs' || tweet.indexOf("clapforashley") != -1) {
       $("#message").replaceWith(message_div + "<h2>" + tweet + "</h2>" + "<h3>- " + user + "</h3>" + div_close);
       $(".photo").fadeTo(500, 1);
-    }
       // $("#clap").replaceWith(clap_div + "<img src='/images/clap.gif' />" + div_close);
-    audio.play();
-    setTimeout(hide, 10000);
+      audio.play();
+      setTimeout(hide, 10000);
+    }
   };
 
   function hide() {

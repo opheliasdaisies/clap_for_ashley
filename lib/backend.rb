@@ -22,7 +22,7 @@ class Backend
     Thread.new do
       client = TweetStream::Client.new
 
-      client.filter({:follow => ['2265270307'], :track => ['clapforashley']}) do |status|
+      client.filter({:follow => ['304067888'], :track => ['clapforashley']}) do |status|
         get_status(status)
       end
 
