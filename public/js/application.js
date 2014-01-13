@@ -1,5 +1,6 @@
-var scheme   = "ws://";
-var uri      = scheme + window.document.location.host + "/faye";
+var scheme   = "wss://";
+var uri      = scheme + "clapforashley.herokuapp.com" + "/faye";
+// var uri      = scheme + window.document.location.host + "/faye";
 var ws       = new WebSocket(uri);
 
 ws.onmessage = function(message) {
