@@ -1,4 +1,4 @@
-var scheme   = "wss://";
+var scheme   = "ws://";
 var uri      = scheme + window.document.location.host + "/faye";
 var ws       = new WebSocket(uri);
 
