@@ -2,7 +2,6 @@ var scheme   = "wss://";
 var uri      = scheme + "clapforashley.herokuapp.com" + "/faye";
 // var uri      = scheme + "window.document.location.host" + "/faye";
 var ws       = new WebSocket(uri);
-console.log(uri);
 
 ws.onmessage = function(message) {
 
@@ -16,7 +15,6 @@ ws.onmessage = function(message) {
     var matcher = /(.*) \- (@.*)$/
     var tweet = matcher.exec(data)[1]
     var user = matcher.exec(data)[2]
-    console.log("Just received: " + data);
     if (user == '@ag_dubs' || tweet.indexOf("clapforashley") != -1) {
       $("#message").replaceWith(message_div + "<h2>" + tweet + "</h2>" + "<h3>- " + user + "</h3>" + div_close);
       $(".photo").fadeTo(500, 1);
