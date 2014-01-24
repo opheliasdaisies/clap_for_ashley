@@ -3,8 +3,8 @@ body {
   background-color: #99E6F0;
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* this doesn't work?? */
-  -moz-box-sizing: border-box; /* this doesn't work?? */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 h2 {
@@ -45,7 +45,7 @@ h3 {
   display: inline-block;
   float: left;
   margin: 10px;
-  padding: 10px 10px 7px 10px; /*for some reason there are a few extra pixels showing on the bottom that's why I made it less*/
+  padding: 10px 10px 7px 10px;
 }
 
 .item-small {
@@ -71,11 +71,6 @@ h3 {
 }
 
 .photo {
-  /*IF WE CAN GET JQUERY TO APPLY / UNAPPLY THIS CLASS TO THE DIVS IT WILL 
-  CREATE THE EFFECT OF THESE ITEMS DISAPPEARING/APPEARING. 
-  IF NOT, THE DIVS WILL ALL SHIFT AND THE MAIN DIV TO SHOW THE TWEET WILL SHIFT
-  LEFT ADN UPWARDS --NB*/
-
   background-color: rgba(255,255,255,0.8);
   opacity: 0;
 }
